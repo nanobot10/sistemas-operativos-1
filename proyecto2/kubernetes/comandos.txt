@@ -1,0 +1,75 @@
+#node is a worker machine may be a vm or physical machine
+#pod is a group of one or more application containers and includes shared storage(volumes), IP address and information about how to run them
+
+
+# version 
+kubectl version
+
+# cluster info
+kubectl cluster-info
+
+# Ver nodos del cluster
+kubectl get nodes
+
+# Ver los pods
+kubectl get pods
+kubectl get pods -l run=kubernetes-bootcamp
+kubectl get pods -l app=v1
+
+# pods info
+kubectl get pods -o wide
+
+# set pod label
+kubectl label pod $POD_NAME app=v1
+
+# describe pods
+kubectl describe pods
+
+
+# basic deployment
+kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+
+# update deployment
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
+
+# confirm update deployment
+kubectl rollout status deployments/kubernetes-bootcamp
+
+# rollback deployment
+kubectl rollout undo deployments/kubernetes-bootcamp
+
+
+# ver deployment
+kubectl get deployments
+
+# abrir proxy
+kubectl proxy
+
+# set pod name into variable
+export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+
+# set port 
+export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+
+# exec command into the pod
+kubectl exec -ti $POD_NAME bash
+
+# get services
+kubectl get services
+kubectl get services -l run=kubernetes-bootcamp 
+
+# delete a service
+kubectl delete service -l run=kubernetes-bootcamp
+
+# expose application port
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+
+
+# scale application
+kubectl scale deployments/kubernetes-bootcamp --replicas=4
+
+
+kubectl get - list resources
+kubectl describe - show detailed information about a resource
+kubectl logs - print the logs from a container in a pod
+kubectl exec - execute a command on a container in a pod

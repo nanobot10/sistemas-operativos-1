@@ -1,5 +1,5 @@
 
-FROM ubuntu:18.04
+FROM ubuntu:latest
 MAINTAINER CloudNativePlusGT
 RUN apt-get update -yq 
 RUN apt-get upgrade -yq

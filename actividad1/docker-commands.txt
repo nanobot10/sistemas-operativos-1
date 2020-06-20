@@ -1,8 +1,8 @@
---bind directory to container
-docker run -v /home/dennis/docker:/app -p 3000:3000 --name "ubuntu-node" -it ubuntu-node /bin/bash
-
 --build image
 docker build -t {image-name}
+
+--bind directory to container
+docker run -v /home/dennis/docker:/app -p 3000:3000 --name "ubuntu-node" -it ubuntu-node /bin/bash
 
 --image history
 docker history {image-name}
