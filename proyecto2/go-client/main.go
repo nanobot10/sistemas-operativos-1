@@ -73,7 +73,7 @@ func sendRequest(quantity int, pacientes []Paciente, url string) {
 func post(url string, paciente *Paciente) {
 	fmt.Println("2. Performing Http Post...")
 	jsonReq, err := json.Marshal(paciente)
-	resp, err := http.Post(url, "application/json; charset=utf-8", bytes.NewBuffer(jsonReq))
+	resp, err := http.Post(url, "text/plain; charset=utf-8", bytes.NewBuffer(jsonReq))
 	if err != nil {
 		log.Fatalln(err)
 	}
