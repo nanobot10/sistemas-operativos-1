@@ -2,8 +2,13 @@ import asyncio
 import os
 import signal
 import json
+import pymongo
 from nats.aio.client import Client as NATS
 
+
+myclient = pymongo.MongoClient("mongodb://10.128.0.3:27017/")
+mydb = myclient["proyecto"]
+mycol = mydb["infectados"]
 
 async def run(loop):
     nc = NATS()
@@ -17,7 +22,7 @@ async def run(loop):
     # To avoid this, start your own locally and modify the example to use it.
     options = {
         # "servers": ["nats://127.0.0.1:4222"],
-        "servers": ["nats://0.0.0.0:4222"],
+        "servers": ["nats://10.128.0.6:4222"],
         "loop": loop,
         "closed_cb": closed_cb
     }
@@ -29,6 +34,8 @@ async def run(loop):
         subject = msg.subject
         reply = msg.reply
         data = json.loads(msg.data.decode())
+        x = mycol.insert_one(data)
+        print(x.inserted_id)
         print("Received a message on '{subject} {reply}': {data}".format(
             subject=subject, reply=reply, data=data))
 
