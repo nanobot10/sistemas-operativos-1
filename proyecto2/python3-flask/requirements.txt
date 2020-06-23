@@ -4,3 +4,4 @@ redis
 asyncio-nats-client
 nkeys
 pymongo
+redis
