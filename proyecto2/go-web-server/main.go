@@ -40,8 +40,7 @@ func sendPaciente(w http.ResponseWriter, r *http.Request) {
 
 	// publish message on nats server
 
-	//nc, err := nats.Connect("nats://10.20.1.2:4222")
-	nc, err := nats.Connect(nats.DefaultURL)
+	nc, err := nats.Connect("nats://10.128.0.6:4222")
 	if err != nil {
 		json.NewEncoder(w).Encode("can't connect to nats server")
 	} else {
