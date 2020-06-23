@@ -15,7 +15,7 @@ import (
 type Paciente struct {
 	Nombre        string `json:"nombre"`
 	Departamento  string `json:"departamento"`
-	Edad          string `json:"edad"`
+	Edad          int    `json:"edad"`
 	FormaContagio string `json:"Forma de contagio"`
 	Estado        string `json:"estado"`
 }
@@ -37,11 +37,11 @@ func sendPaciente(w http.ResponseWriter, r *http.Request) {
 	reqBody, _ := ioutil.ReadAll(r.Body)
 	var paciente Paciente
 	json.Unmarshal(reqBody, &paciente)
-	fmt.Println(paciente.Nombre)
 
 	// publish message on nats server
 
-	nc, err := nats.Connect("nats://10.20.1.2:4222")
+	//nc, err := nats.Connect("nats://10.20.1.2:4222")
+	nc, err := nats.Connect(nats.DefaultURL)
 	if err != nil {
 		json.NewEncoder(w).Encode("can't connect to nats server")
 	} else {
@@ -49,15 +49,15 @@ func sendPaciente(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			json.NewEncoder(w).Encode("can't get json encoder")
 		} else {
-			if err := ec.Publish("foo", &paciente); err != nil {
+			if err := ec.Publish("foo", paciente); err != nil {
 				log.Fatal(err)
 			}
-			json.NewEncoder(w).Encode("message sended")
+			json.NewEncoder(w).Encode(&paciente)
 		}
 	}
 }
 
 func main() {
-	fmt.Println("Rest API v2.0 - Mux Routers")
+	fmt.Println("init go rest api")
 	handleRequests()
 }
