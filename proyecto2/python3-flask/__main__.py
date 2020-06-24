@@ -3,12 +3,15 @@ import os
 import signal
 import json
 import pymongo
+import redis
 from nats.aio.client import Client as NATS
 
 
 myclient = pymongo.MongoClient("mongodb://10.128.0.3:27017/")
 mydb = myclient["proyecto"]
 mycol = mydb["infectados"]
+
+r = redis.Redis(host='10.128.0.3',port=6379,password='',db = '15')
 
 async def run(loop):
     nc = NATS()
@@ -36,6 +39,8 @@ async def run(loop):
         data = json.loads(msg.data.decode())
         x = mycol.insert_one(data)
         print(x.inserted_id)
+        StringData = msg.data.decode('utf-8')
+        r.lpush('casoscovid',StringData)
         print("Received a message on '{subject} {reply}': {data}".format(
             subject=subject, reply=reply, data=data))
 
