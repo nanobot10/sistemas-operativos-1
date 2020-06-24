@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Coronavirus</a>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 col-sm-12 mt-5">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  Top 3 Departamentos con Coranavirus
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" *ngFor="let item of top3"> {{ item._id }} : {{item.total}} casos </li>
+                </ul>
+            </div>
+        </div>
+      <div class="col-lg-6 col-sm-12" >
+        <canvas id="pieChart" width="800" height="450" >{{ top3Chart }}</canvas>
+      </div>
+</div>
+
+<div class="container-fluid mt-5">
+    <h1>Listado de Infectados</h1>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">_id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Departamento</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Forma de Contagio</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of infected">
+            <th scope="row"> {{item._id}} </th>
+            <td> {{item.nombre}} </td>
+            <td> {{item.departamento}} </td>
+            <td> {{item.edad}} </td>
+            <td> {{item['Forma de contagio']}} </td>
+            <td> {{item.estado}} </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
