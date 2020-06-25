@@ -12,8 +12,11 @@ export class AppComponent implements OnInit {
 
   infected: any[] = [];
   top3: any[] = [];
+  ages: any[] = [];
+  lastCase: any;
 
   top3Chart: any = null;
+  barChart: any = null;
 
   constructor(private infectedService: InfectedService) {
   }
@@ -21,23 +24,25 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.infectedService.getAllInfected()
       .subscribe( (res: any) => {
-        console.log(res);
         this.infected = res.pacientes;
       });
     this.infectedService.getTop3Infected()
       .subscribe( (res: any) => {
-        console.log(res);
         this.top3 = res.pacientes;
         this.createTop3Pie();
       });
-
-     
+    this.infectedService.getLastCase()
+      .subscribe( (res: any) => {
+        this.lastCase = res.paciente;
+      });
+    this.infectedService.getAges()
+    .subscribe( (res: any) => {
+      this.ages = res.pacientes;
+      this.createBarChart();
+    }); 
   }
 
   createTop3Pie() {
-
-    console.log(this.top3.map( item => {return item._id} ));
-    console.log(this.top3.map( item => {return item.total})); 
     this.top3Chart = new Chart('pieChart', {
       type: 'pie',
       data: {
@@ -51,10 +56,36 @@ export class AppComponent implements OnInit {
       options: {
         title: {
           display: true,
-          text: 'Predicted world population (millions) in 2050'
+          text: 'Top 3 Departamentos con Coronavirus'
         }
       }
   });
+  }
+
+  createBarChart() {
+
+    console.log(this.ages.map( item => {return item.age} ));
+    console.log(this.ages.map( item => {return item.value})); 
+    this.barChart =  new Chart('barChart', {
+        type: 'horizontalBar',
+        data: {
+          labels: this.ages.map( item => {return item.age} ),
+          datasets: [
+            {
+              label: "Personas",
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+              data: this.ages.map( item => {return item.value})
+            }
+          ]
+        },
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: 'Edades Afectadas'
+          }
+        }
+    });
   }
 
 

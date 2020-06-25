@@ -3,8 +3,11 @@
 </nav>
 
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-6 col-sm-12 mt-5">
+
+    <h1>Estadísticas Generales</h1>
+    <hr>
+  <div class="row">
+      <div class="col-lg-6 col-sm-12 mt-5">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
                   Top 3 Departamentos con Coranavirus
@@ -17,6 +20,26 @@
       <div class="col-lg-6 col-sm-12" >
         <canvas id="pieChart" width="800" height="450" >{{ top3Chart }}</canvas>
       </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 mt-5" *ngIf="lastCase">
+          <div class="card" style="width: 18rem;">
+              <div class="card-header">
+                Último caso agregado
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"> Nombre: {{ lastCase.nombre }} </li>
+                <li class="list-group-item"> Departamento: {{ lastCase.departamento }} </li>
+                <li class="list-group-item"> edad: {{ lastCase.edad }} </li>
+                <li class="list-group-item"> Forma de Contagio: {{ lastCase['Forma de contagio'] }} </li>
+                <li class="list-group-item"> Estado: {{ lastCase.estado }} </li>
+              </ul>
+          </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 mt-5" >
+      <canvas id="barChart" width="800" height="450" >{{ barChart }}</canvas>
+    </div>
 </div>
 
 <div class="container-fluid mt-5">

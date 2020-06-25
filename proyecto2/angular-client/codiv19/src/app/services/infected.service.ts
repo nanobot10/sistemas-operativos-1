@@ -19,5 +19,12 @@ export class InfectedService {
     return this.http.get(`${API_URL}/pacientes/top-3`);
   }
 
+  getLastCase() {
+    return this.http.get(`${API_URL}/pacientes/last`);
+  }
+
+  getAges() {
+    return this.http.get(`${API_URL}/pacientes/ages`);
+  }
 
 }

@@ -7,164 +7,66 @@
         "Estado": "Activo"
     },
     {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
+        "Nombre": "Usuario 1",
+        "Departamento": "Escuintla",
+        "Edad": 60,
         "Forma de contagio": "Comunitario",
         "Estado": "Recuperado"
     },
     {
-        "Nombre": "Neto Bran",
+        "Nombre": "Usuario 2",
+        "Departamento": "Retalhuleu",
+        "Edad": 75,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Usuario 3",
+        "Departamento": "Zacapa",
+        "Edad": 15,
+        "Forma de contagio": "Comunitario",
+        "Estado": "Activo"
+    },
+    {
+        "Nombre": "Usuario 4",
         "Departamento": "Guatemala",
         "Edad": 25,
         "Forma de contagio": "Comunitario",
         "Estado": "Activo"
     },
     {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
+        "Nombre": "Usuario 5",
+        "Departamento": "Escuintla",
         "Edad": 25,
         "Forma de contagio": "Comunitario",
         "Estado": "Activo"
     },
     {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
+        "Nombre": "Pablo Medrano",
         "Departamento": "Guatemala",
-        "Edad": 25,
+        "Edad": 27,
         "Forma de contagio": "Comunitario",
         "Estado": "Activo"
     },
     {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
+        "Nombre": "Dennis Castro",
+        "Departamento": "Guatemala",
+        "Edad": 28,
+        "Forma de contagio": "Importado",
+        "Estado": "Activo"
     },
     {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
-        "Edad": 25,
+        "Nombre": "Usuario 6",
+        "Departamento": "Huehuetenango",
+        "Edad": 13,
         "Forma de contagio": "Comunitario",
         "Estado": "Activo"
     },
     {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
-        "Edad": 25,
+        "Nombre": "Usuario 7",
+        "Departamento": "Sololá",
+        "Edad": 20,
         "Forma de contagio": "Comunitario",
         "Estado": "Activo"
-    },
-    {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
-        "Edad": 25,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Activo"
-    },
-    {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
-        "Edad": 25,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Activo"
-    },
-    {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
-        "Edad": 25,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Activo"
-    },
-    {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
-        "Edad": 25,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Activo"
-    },
-    {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
-        "Edad": 25,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Activo"
-    },
-    {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
-    },
-    {
-        "Nombre": "Neto Bran",
-        "Departamento": "Guatemala",
-        "Edad": 25,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Activo"
-    },
-    {
-        "Nombre": "Aironmen",
-        "Departamento": "Zacapa",
-        "Edad": 50,
-        "Forma de contagio": "Comunitario",
-        "Estado": "Recuperado"
     }
 ]

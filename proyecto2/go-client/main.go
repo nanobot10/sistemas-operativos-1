@@ -25,7 +25,7 @@ type InitConfig struct {
 type Paciente struct {
 	Nombre        string `json:"nombre"`
 	Departamento  string `json:"departamento"`
-	Edad          string `json:"edad"`
+	Edad          int    `json:"edad"`
 	FormaContagio string `json:"Forma de contagio"`
 	Estado        string `json:"estado"`
 }
