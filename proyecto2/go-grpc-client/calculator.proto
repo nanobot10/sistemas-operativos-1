@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-package calculator;
-
 message Number {
     float value = 1;
 }
