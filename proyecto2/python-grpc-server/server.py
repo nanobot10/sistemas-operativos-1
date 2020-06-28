@@ -12,11 +12,11 @@ import pymongo
 import redis
 import json
 
-myclient = pymongo.MongoClient("mongodb://35.202.133.187:27017/")
+myclient = pymongo.MongoClient("mongodb://10.128.0.3:27017/")
 mydb = myclient["proyecto"]
 mycol = mydb["infectados"]
 
-r = redis.Redis(host='35.202.133.187',port=6379,password='',db = '15')
+r = redis.Redis(host='10.128.0.3',port=6379,password='',db = '15')
 
 # create a class to define the server functions, derived from
 # calculator_pb2_grpc.CalculatorServicer
