@@ -1,7 +1,11 @@
 syntax = "proto3";
 
 message Number {
-    float value = 1;
+    string nombre = 1;
+    string departamento = 2;
+    int32 edad = 3;
+    string formaDeContagio = 4;
+    string estado = 5;
 }
 
 service Calculator {

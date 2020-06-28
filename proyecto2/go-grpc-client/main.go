@@ -18,7 +18,7 @@ import (
 type Paciente struct {
 	Nombre        string `json:"nombre"`
 	Departamento  string `json:"departamento"`
-	Edad          int    `json:"edad"`
+	Edad          int32  `json:"edad"`
 	FormaContagio string `json:"Forma de contagio"`
 	Estado        string `json:"estado"`
 }
@@ -52,9 +52,11 @@ func sendPaciente(w http.ResponseWriter, r *http.Request) {
 	client := pb.NewCalculatorClient(conn)
 
 	message := pb.Number{
-		nombre:       paciente.Nombre,
-		departamento: paciente.Departamento,
-		edad:         paciente.Edad,
+		Nombre:          paciente.Nombre,
+		Departamento:    paciente.Departamento,
+		Edad:            paciente.Edad,
+		FormaDeContagio: paciente.FormaContagio,
+		Estado:          paciente.Estado,
 	}
 
 	response, err := client.SquareRoot(context.Background(), &message)
@@ -63,7 +65,7 @@ func sendPaciente(w http.ResponseWriter, r *http.Request) {
 		log.Fatalf("Erro while send square root: %s", err)
 	}
 
-	log.Printf("response from server: %f", response.Value)
+	log.Printf("response from server: %s", response.Nombre)
 }
 
 func main() {
