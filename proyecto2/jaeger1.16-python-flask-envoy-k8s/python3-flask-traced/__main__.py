@@ -44,7 +44,7 @@ async def run(loop):
     # To avoid this, start your own locally and modify the example to use it.
     options = {
         # "servers": ["nats://127.0.0.1:4222"],
-        "servers": ["nats://10.128.0.6:4222"],
+        "servers": ["nats://nats:4222"],
         "loop": loop,
         "closed_cb": closed_cb
     }
@@ -64,11 +64,11 @@ async def run(loop):
         tracer = trace.get_tracer(__name__)
         with tracer.start_as_current_span("step1"):
             with tracer.start_as_current_span("se recibió mensaje desde nats"):
-        #with tracer.start_as_current_span(data):
-        #with tracer.start_as_current_span("se ha insertado en mongo"):
-        #with tracer.start_as_current_span(x.inserted_id):
-        #with tracer.start_as_current_span("se ha insertado en redis"):
-                requests.get("http://www.google.com")
+                with tracer.start_as_current_span(str(data)):
+                    with tracer.start_as_current_span("se ha insertado en mongo"):
+                        with tracer.start_as_current_span(str(x.inserted_id)):
+                            with tracer.start_as_current_span("se ha insertado en redis"):
+                                requests.get("http://www.google.com")
        #     with tracer.start_as_current_span("step2"):
        #         requests.get("http://www.google.com")
 
