@@ -42,7 +42,7 @@ func sendPaciente(w http.ResponseWriter, r *http.Request) {
 	json.Unmarshal(reqBody, &paciente)
 
 	var conn *grpc.ClientConn
-	conn, err := grpc.Dial("10.32.0.66:50051", grpc.WithInsecure())
+	conn, err := grpc.Dial("python-grpc-server:50051", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("could not connect: %s", err)
 	}
