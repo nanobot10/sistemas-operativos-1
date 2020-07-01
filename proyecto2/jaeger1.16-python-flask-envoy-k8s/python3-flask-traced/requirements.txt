@@ -1,0 +1,13 @@
+flask
+requests
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-ext-jaeger
+opentelemetry-ext-flask
+opentelemetry-ext-requests
+opentelemetry-ext-prometheus
+prometheus_client
+asyncio-nats-client
+nkeys
+pymongo
+redis

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jaeger-app
+  name: jaeger-app
+  namespace: proyecto
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jaeger-app
+  template:
+    metadata:
+      labels:
+        app: jaeger-app
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "5555"
+    spec:
+      containers:
+      - image: medrake/jaeger-app-flask-metrics
+        imagePullPolicy: Always
+        name: jaeger-app-flask
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: jaeger-app
+  name: jaeger-app-srv
+  namespace: proyecto
+spec:
+  ports:
+  - port: 5555
+    protocol: TCP
+    targetPort: 5555
+    nodePort: 30001
+  selector:
+    app: jaeger-app
+  type: NodePort
