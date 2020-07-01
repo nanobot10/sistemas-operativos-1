@@ -44,36 +44,6 @@ pacienteRoutes.get('/last', (req: any, res: Response) => {
 
     console.log('connect to redis database');
 
-    redisClient.lrange('casoscovid',0,-1, (err, data: any[]) => {
-
-        if(err) {
-            res.json({
-                success: false,
-                data
-            });
-        } else {
-            
-            
-            res.json({
-                success: true,
-                paciente: JSON.parse(data[0])
-            });
-        }
-
-    });
-
-});
-
-pacienteRoutes.get('/last', (req: any, res: Response) => {
-    
-    const redisClient = redis.createClient({
-        host: '35.202.133.187',
-        port: 6379,
-        db: '15'
-    });
-
-    console.log('connect to redis database');
-
     redisClient.lrange('casoscovid',0,1, (err, data: any[]) => {
 
         if(err) {
@@ -86,7 +56,7 @@ pacienteRoutes.get('/last', (req: any, res: Response) => {
             
             res.json({
                 success: true,
-                paciente: JSON.parse(data[0])
+                paciente: data[0] ? JSON.parse(data[0]) : null
             });
         }
 

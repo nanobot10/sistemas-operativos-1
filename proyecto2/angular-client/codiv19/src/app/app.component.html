@@ -28,12 +28,15 @@
               <div class="card-header">
                 Último caso agregado
               </div>
-              <ul class="list-group list-group-flush">
+              <ul class="list-group list-group-flush" *ngIf="lastCase">
                 <li class="list-group-item"> Nombre: {{ lastCase.nombre }} </li>
                 <li class="list-group-item"> Departamento: {{ lastCase.departamento }} </li>
                 <li class="list-group-item"> edad: {{ lastCase.edad }} </li>
                 <li class="list-group-item"> Forma de Contagio: {{ lastCase['Forma de contagio'] }} </li>
                 <li class="list-group-item"> Estado: {{ lastCase.estado }} </li>
+              </ul>
+              <ul *ngIf="!lastCase">
+                <li class="list-group-item"> Aún no existen datos en redis </li>
               </ul>
           </div>
     </div>
