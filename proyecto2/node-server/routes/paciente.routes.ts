@@ -8,8 +8,10 @@ const pacienteRoutes = Router();
 
 
 pacienteRoutes.get('/', async (req: any, res: Response) => {
-    
-    const pacientes = await Paciente.find().limit(10);
+
+    const param = req.query;
+    console.log(param);
+    const pacientes = await Paciente.find().skip(Number(param.page)*100).limit(100);
     res.json({
         success: true,
         pacientes
@@ -41,8 +43,6 @@ pacienteRoutes.get('/last', (req: any, res: Response) => {
         port: 6379,
         db: '15'
     });
-
-    console.log('connect to redis database');
 
     redisClient.lrange('casoscovid',0,1, (err, data: any[]) => {
 

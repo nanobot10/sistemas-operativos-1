@@ -9,10 +9,13 @@ const API_URL = environment.apiUrl;
 })
 export class InfectedService {
 
+
+
   constructor(private http: HttpClient) { }
 
-  getAllInfected() {
-    return this.http.get(`${API_URL}/pacientes`);
+  getAllInfected(page: number) {
+    console.log(page);
+    return this.http.get(`${API_URL}/pacientes?page=${page}`);
   }
 
   getTop3Infected() {

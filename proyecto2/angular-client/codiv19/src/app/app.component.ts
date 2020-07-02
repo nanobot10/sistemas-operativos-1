@@ -17,12 +17,13 @@ export class AppComponent implements OnInit {
 
   top3Chart: any = null;
   barChart: any = null;
+  page: number = 0;
 
   constructor(private infectedService: InfectedService) {
   }
 
   ngOnInit() {
-    this.infectedService.getAllInfected()
+    this.infectedService.getAllInfected(this.page)
       .subscribe( (res: any) => {
         this.infected = res.pacientes;
       });
@@ -86,6 +87,28 @@ export class AppComponent implements OnInit {
           }
         }
     });
+  }
+
+
+  previous() {    
+    this.page--;
+    if(this.page < 0) {
+      this.page = 0;
+    }
+    this.infectedService.getAllInfected(this.page)
+      .subscribe( (res: any) => {
+        this.infected = res.pacientes;
+      });
+  }
+
+  next() {
+    if(this.infected.length > 0){
+      this.page++;
+    }
+    this.infectedService.getAllInfected(this.page)
+      .subscribe( (res: any) => {
+        this.infected = res.pacientes;
+      });
   }
 
 
