@@ -36,7 +36,6 @@ type Response struct {
 }
 
 func main() {
-	fmt.Println("Hola mundo")
 	config := readConfig()
 	jsonFile, err := os.Open(config.Path)
 
@@ -49,6 +48,10 @@ func main() {
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var pacientes []Paciente
 	json.Unmarshal([]byte(byteValue), &pacientes)
+	fmt.Println(len(pacientes))
+	if config.Quantity != len(pacientes) {
+		log.Fatal("la cantidad de pacientes es diferente a la configuración")
+	}
 
 	var wg sync.WaitGroup
 	wg.Add(config.Threads)
@@ -71,7 +74,7 @@ func sendRequest(quantity int, pacientes []Paciente, url string) {
 }
 
 func post(url string, paciente *Paciente) {
-	fmt.Println("2. Performing Http Post...")
+	fmt.Println("Performing Http Post...")
 	jsonReq, err := json.Marshal(paciente)
 	resp, err := http.Post(url, "text/plain; charset=utf-8", bytes.NewBuffer(jsonReq))
 	if err != nil {
